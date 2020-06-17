@@ -1,7 +1,14 @@
-import scala.concurrent.ExecutionContext
 import fs2._
 
-// Create pure stream using Stream.apply
+val stream1: Stream[Pure, Int] = Stream(1, 2, 3, 4)
+stream1.compile.toList
+
+val streamRepeat = Stream(1, 2, 3).repeat
+val constantStream = Stream.constant("foo")
+constantStream.take(5).compile.toList
+streamRepeat.take(20).compile.toList
+
+// Create pure stream using Stream.applyM
 val pureStream = Stream(1, 2, 3, 4)
 
 // Streams can be compiled to another data structure
@@ -20,7 +27,9 @@ def getAge(name: String): IO[Int] = IO(name.length)
 
 val stream = Stream("John", "Paul", "George", "Ringo")
 
-stream.evalMap(getAge)
+val foo = stream.evalMap(getAge)
+
+foo.compile.toList.unsafeRunSync()
 
 val temp = stream.evalFilter(name => IO(name.contains("o")))
 
@@ -35,10 +44,5 @@ stream2.take(5).compile.toList
 
 val stream3 = Stream(1, 2, 3).repeat
 
-import cats.effect.Timer
-import scala.concurrent.duration._
-
-implicit val timer: Timer[IO] = IO.timer(ExecutionContext.global)
-
-val stream4 = Stream.awakeEvery[IO](5.seconds)
-stream4.take(2).compile.toList.unsafeRunSync()
+// val stream4 = Stream.awakeEvery[IO](5.seconds)
+// stream4.take(2).compile.toList.unsafeRunSync()
