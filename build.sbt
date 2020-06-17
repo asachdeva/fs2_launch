@@ -2,7 +2,7 @@ import com.scalapenos.sbt.prompt.SbtPrompt.autoImport._
 import com.scalapenos.sbt.prompt._
 import Dependencies._
 
-name := """zio_launch"""
+name := """fs2_launch"""
 organization in ThisBuild := "asachdeva"
 crossScalaVersions in ThisBuild := Seq("2.12.11", "2.13.2")
 
@@ -36,7 +36,10 @@ lazy val `fs2_launch` = project
     scalaVersion := "2.13.2",
     libraryDependencies ++= Seq(
       Libraries.fs2Core,
-      Libraries.circeParser
+      Libraries.fs2IO,
+      Libraries.circeParser,
+      Libraries.circeGeneric,
+      Libraries.circeCore
     ),
     addCompilerPlugin(Libraries.betterMonadicFor),
     format := {

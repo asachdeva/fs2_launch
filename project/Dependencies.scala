@@ -21,7 +21,10 @@ object Dependencies {
     def fs2(artifact: String, version: String): ModuleID = "co.fs2" %% artifact % version
 
     lazy val fs2Core = fs2("fs2-core", Versions.fs2)
+    lazy val fs2IO = fs2("fs2-io", Versions.fs2)
+    lazy val circeCore = circe("circe-core", Versions.circe)
     lazy val circeParser = circe("circe-parser", Versions.circe)
+    lazy val circeGeneric = circe("circe-generic", Versions.circe)
 
     // Compiler
     lazy val kindProjector = ("org.typelevel" %% "kind-projector" % Versions.kindProjector).cross(CrossVersion.full)
