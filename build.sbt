@@ -4,7 +4,7 @@ import Dependencies._
 
 name := """fs2_launch"""
 organization in ThisBuild := "asachdeva"
-crossScalaVersions in ThisBuild := Seq("2.12.11", "2.13.2")
+crossScalaVersions in ThisBuild := Seq("2.12.11", "2.13.3")
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 promptTheme := PromptTheme(
@@ -33,7 +33,7 @@ lazy val `fs2_launch` = project
     organization := "asachdeva",
     name := "fs2_launch",
     version := "0.0.1-SNAPSHOT",
-    scalaVersion := "2.13.2",
+    scalaVersion := "2.13.3",
     libraryDependencies ++= Seq(
       Libraries.fs2Core,
       Libraries.fs2IO,
