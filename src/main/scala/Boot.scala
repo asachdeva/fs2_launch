@@ -13,9 +13,8 @@ object Boot extends IOApp {
     .through(text.lines)
     .drop(1) // header
     .map(_.split(';'))
-    .collect({
-      case Array(name, bank_identifier) =>
-        Row(name, bank_identifier)
+    .collect({ case Array(name, bank_identifier) =>
+      Row(name, bank_identifier)
     })
 
   val rowToJson: Pipe[IO, Row, Byte] =
