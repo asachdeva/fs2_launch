@@ -3,13 +3,12 @@ import com.scalapenos.sbt.prompt._
 import Dependencies._
 
 name := """fs2_launch"""
-organization in ThisBuild := "asachdeva"
-crossScalaVersions in ThisBuild := Seq("2.12.12", "2.13.4")
 
-val format = taskKey[Unit]("Format files using scalafmt and scalafix")
+val format = taskKey[Unit]("Format files using scalafmt")
+
 promptTheme := PromptTheme(
   List(
-    text(_ => "[asachdeva]", fg(64)).padRight(" λ ")
+    text(_ => "[fs2_launch]", fg(64)).padRight(" λ ")
   )
 )
 
