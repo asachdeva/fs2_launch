@@ -3,3 +3,6 @@
 target/
 project/metals.sbt
 output.json
+.bsp/
+.idea/
+.vscode/

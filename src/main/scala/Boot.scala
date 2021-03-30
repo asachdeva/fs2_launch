@@ -1,9 +1,10 @@
 import fs2._
+
 import java.io.File
 import cats.effect._
 import _root_.io.circe.generic.auto._
 import _root_.io.circe.syntax._
-import cats.implicits._
+import fs2.io.file.Files
 
 object Boot extends IOApp {
   val dataset = new File("data.csv")
@@ -28,15 +29,12 @@ object Boot extends IOApp {
   )
 
   override def run(args: List[String]): IO[ExitCode] =
-    Blocker[IO]
-      .use { blocker =>
-        fs2.io.file
-          .readAll[IO](dataset.toPath, blocker, 4096)
-          .through(parseCsv)
-          .through(rowToJson)
-          .through(fs2.io.file.writeAll(output.toPath, blocker))
-          .compile
-          .drain >> IO(println("Done!"))
-      }
+    Files[IO]
+      .readAll(dataset.toPath, 4096)
+      .through(parseCsv)
+      .through(rowToJson)
+      .through(Files[IO].writeAll(output.toPath))
+      .compile
+      .drain >> IO(println("Done!"))
       .as(ExitCode.Success)
 }
