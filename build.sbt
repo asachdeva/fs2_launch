@@ -41,6 +41,7 @@ lazy val `fs2_launch` = project
       Libraries.circeCore
     ),
     addCompilerPlugin(Libraries.betterMonadicFor),
+    scalafmtOnCompile := true,
     format := {
       Command.process("scalafmtAll", state.value)
       Command.process("scalafmtSbt", state.value)
