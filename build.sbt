@@ -14,7 +14,7 @@ promptTheme := PromptTheme(
 
 lazy val testSettings: Seq[Def.Setting[_]] = List(
   Test / parallelExecution := false,
-  skip.in(publish) := true,
+  publish / skip := true,
   fork := true
 )
 
@@ -22,7 +22,7 @@ lazy val noPublish = Seq(
   publish := {},
   publishLocal := {},
   publishArtifact := false,
-  skip in publish := true
+  publish / skip := true
 )
 
 lazy val `fs2_launch` = project
