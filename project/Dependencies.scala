@@ -4,7 +4,7 @@ object Dependencies {
 
   object Versions {
     val circe = "0.14.1"
-    val fs2 = "3.1.2"
+    val fs2 = "3.2.2"
 
     // Test
 
@@ -13,7 +13,7 @@ object Dependencies {
     val betterMonadicFor = "0.3.1"
 
     // Runtime
-    val logback = "1.2.6"
+    val logback = "1.2.7"
   }
 
   object Libraries {
