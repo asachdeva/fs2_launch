@@ -3,8 +3,8 @@ import sbt._
 object Dependencies {
 
   object Versions {
-    val circe = "0.14.1"
-    val fs2 = "3.2.4"
+    val circe = "0.14.2"
+    val fs2 = "3.2.8"
 
     // Test
 
