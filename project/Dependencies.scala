@@ -4,7 +4,7 @@ object Dependencies {
 
   object Versions {
     val circe = "0.14.2"
-    val fs2 = "3.2.8"
+    val fs2 = "3.2.9"
 
     // Test
 
