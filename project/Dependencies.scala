@@ -3,8 +3,8 @@ import sbt._
 object Dependencies {
 
   object Versions {
-    val circe = "0.14.2"
-    val fs2 = "3.2.10"
+    val circe = "0.14.3"
+    val fs2 = "3.3.0"
 
     // Test
 
@@ -13,7 +13,7 @@ object Dependencies {
     val betterMonadicFor = "0.3.1"
 
     // Runtime
-    val logback = "1.2.10"
+    val logback = "1.4.1"
   }
 
   object Libraries {
@@ -33,7 +33,6 @@ object Dependencies {
     // Runtime
     lazy val logback = "ch.qos.logback" % "logback-classic" % Versions.logback
 
-    // Test
   }
 
 }
