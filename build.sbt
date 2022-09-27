@@ -32,7 +32,7 @@ lazy val `fs2_launch` = project
     organization := "asachdeva",
     name := "fs2_launch",
     version := "0.0.1-SNAPSHOT",
-    scalaVersion := "2.13.8",
+    scalaVersion := "2.13.9",
     libraryDependencies ++= Seq(
       Libraries.fs2Core,
       Libraries.fs2IO,
